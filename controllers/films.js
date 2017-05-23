@@ -31,4 +31,15 @@ filmRouter.get('/:id', function(req, res){
   res.json({film: film});
 });
 
+filmRouter.post('/:id/reviews', function(req, res){
+  var film = films[req.params.id];
+  var review1 = new Review({
+    comment: req.body.comment,
+    rating: req.body.rating,
+    author: req.body.author
+  });
+  film.addReview(review1);
+  res.json(data{films});
+});
+
 module.exports = filmRouter;
